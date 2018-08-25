@@ -2,4 +2,4 @@ www/
 letsencrypt/
 dhparam.pem
 .secrets
-webroot
+webroot/
