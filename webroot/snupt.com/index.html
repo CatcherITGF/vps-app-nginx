@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Hugo 0.46" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>ДХ</title>
+  
+  <meta name="description" content="Авторский проект Дмитрия Храпонова" />
+  <meta name="keywords" content="блог, программирование, технологии, гаджеты, фото, путешествия, обзоры, гайды, видеоигры">
+  <meta name="author" content="Дмитрий Храпонов">
+
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@snupt"/>
+
+
+  <meta property="og:title" content="ДХ" />
+  <meta property="og:description" content="Авторский проект Дмитрия Храпонова" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://snupt.com/" />
+  <meta property="og:image" content="https://snupt.com/images/general/cover.png" />
+  <meta property="og:locale" content="ru_RU" />
+  
+
+  <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "url": "https://snupt.com/",
+  "author": {
+    "@type": "Person",
+    "name": "Дмитрий Храпонов"
+  },
+  "description": "Авторский проект Дмитрия Храпонова",
+  "image": "https://snupt.com/images/general/cover.png",
+  "thumbnailUrl": "https://snupt.com/images/general/avatar.png",
+  "name": "ДХ"
+}
+</script>
+
+
+  <link type="text/css" rel="stylesheet" href="https://snupt.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://snupt.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://snupt.com/css/hyde.css">
+  <link href="https://fonts.googleapis.com/css?family=Yeseva+One%7CFira+Mono%7CPT+Sans:400,400i,700;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
+
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/favicons/site.webmanifest">
+  <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <link href="https://snupt.com/blog/index.xml" rel="alternate" type="application/rss+xml" title="ДХ: Блог" />
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link type="text/css" rel="stylesheet" href="https://snupt.com/css/my.css">
+
+</head>
+
+  
+  <body>
+  <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a style="text-decoration: none" href="https://snupt.com/"><h1>ДХ</h1></a>
+      
+      <p class="lead">
+       Авторский проект Дмитрия Храпонова 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="https://snupt.com/">Главная</a> </li>
+      <li><a href="/blog/"> Блог </a></li><li><a href="/about/"> Обо мне </a></li>
+      <li><p></p></li>
+      
+      
+      <li><a href="mailto:snupt@snupt.com"> Почта </a></li><li><a href="https://twitter.com/snupt/"> Твиттер </a></li><li><a href="https://telegram.me/snupt"> Телеграм </a></li><li><a href="https://instagram.com/snupt"> Инстаграм </a></li><li><a href="https://github.com/snupt"> Гитхаб </a></li>
+      
+    </ul>
+
+    <p><a href="/blog/index.xml"><span class="fas fa-rss"></span></a></p>
+
+    <form id="searchform" method="get" action="https://www.google.com/search">
+    <p><input type="text" name="q" placeholder="Поиск по сайту" style="text-align: inherit; font-size: inherit; font-family: inherit;" /></p>
+    <input type="hidden" name="sitesearch" value="https://snupt.com/" /></form>
+
+    
+    <p>&copy; 2018. Все права защищены. </p>
+  </div>
+</div>
+
+    <div class="content container">
+    <div class="posts">
+
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/deployment-automation-tools/">Автоматический деплой приложений</a>
+  </h1>
+  <span class="post-date">Aug 8, 2018</span>
+  <p>В этой заметке пойдёт речь об автоматизации выкладки приложений на удалённые серверы и базовое управление процессами.
+Проблематика Обычно у админа есть несколько задач связанных с работой приложений на удалённых серверах:
+ Доставка, установка приложения и его зависимостей Доставка контента Доставка служебных файлов  Конфиги Сертификаты Скрипты Переменные окружения И так далее  Администрирование сервера  Создание и настройка учётных записей Управление сервисами Обновление приложений И так далее   Это набор довольно типичных задач, но их объём может варьироваться в зависимости от требований.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/deployment-automation-tools/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/vscode-terminal-key-bindings/">Управление терминалом VS Code с клавиатуры</a>
+  </h1>
+  <span class="post-date">Jun 14, 2018</span>
+  <p>Встроенный терминал хорошо вписывается в интерфейс VS Code, но по умолчанию управляется только курсором. Мышка зло, так как работа в терминале подразумевает режим ввода с клавиатуры. При активной отладке нужно как минимум быстро переключаться между вкладками терминала, создавать новые и убивать существующие сессии. Стандартные привычные клавиатурные сочетания ctrl+tab, ctrl+shift+tab, cmd+n и cmd+w дефолтом работают только для вкладок с контентом, но настройками предусмотрена возможность по разному реагировать в зависимости от того где находится фокус.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/vscode-terminal-key-bindings/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/outline-proxy/">Outline Proxy</a>
+  </h1>
+  <span class="post-date">Jun 13, 2018</span>
+  <p>В Outline (VPN над Shadowsocks от Google) зафигачили поддежу режима Connect On Demand. Причём равносильно для клиентов Mac / iOS. Теперь можно попробовать им попользоваться. Это в общем-то единственное решение для обеспечения VPN с настройкой которого справится даже ваша бабушка.
+Выглядит это примерно так: ставится Outline Manager, который (опционально) сам поднимает VPS (например в DigitalOcean), инсталлит нужное ПО, а вы лишь генерите ключи доступа для клиентов. Юзер только вставляет себе ключ и у него сразу всё работает.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/outline-proxy/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/ssh-tmux/">Автозапуск Tmux при использовании SSH</a>
+  </h1>
+  <span class="post-date">Jun 6, 2018</span>
+  <p>При работе удалённо по ssh довольно удобно запускать tmux буквально в каждой сессии, чтоб в случае обрыва или преднамеренного закрытия можно было легко вернуться в то же окружение. Я уже молчу про базовые удобства tmux в виде виртуального оконного режима, сплита экрана и прочих фишек. А если у вас ещё macOS и iTerm с интеграцией tmux, то вообще красота. Но есть маленькая проблема — набирать в каждой сессии tmux -CC attach или tmux -CC new или tmux -CC new -A -s common это рутина.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/ssh-tmux/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/openvpn-server/">OpenVPN своими руками</a>
+  </h1>
+  <span class="post-date">Feb 25, 2018</span>
+  <p>Хочу поделиться инструкцией по созданию собственного VPN на любом удалённом Linux сервере. Мой сервер работает на хостинг провайдере Digital Ocean, так как у них хорошие цены, быстрые каналы и много включённого в трафика. Тариф выбирайте любой, но достаточно минимального. Для России, наверное, наиболее предпочтительным регионом является Frankfurt. У меня до серверов из этого датацентра самые низкое время отклика.
+Системные требования На стороне клиента вам потребуется установленный ansible, так как в моём решении используется именно этот инструмент для конфигурирования сервера.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/openvpn-server/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/bose-qc35ii/">Bose QuietComfort 35 II</a>
+  </h1>
+  <span class="post-date">Feb 15, 2018</span>
+  <p>Наушники делятся на несколько типов, и все они решают свои задачи по разному. У вставных наушников есть недостатки, главные из которых полное отсутствие изоляции от внешних шумов и не выдающееся качество звучание.
+Apple AirPods Начиная с прошлого года и по настоящее время я пользуюсь Apple AirPods буквально каждый день. Маленькая коробочка легко умещается даже в кармане на рубашке, а заряда аккумулятора хватает на всю рабочую неделю. Переключение между устройствами семейства Apple буквально в один клик, тактильное управление, неплохая гарнитура, удобная посадка, никаких проводов и они таки не выпадают даже во время бега.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/bose-qc35ii/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/hyper-caps-lock/">Hyper Caps Lock</a>
+  </h1>
+  <span class="post-date">Feb 8, 2018</span>
+  <p>Ещё недавно клавиша caps lock была для меня одной из самых бесполезных. После отказа от раскладки Бирмана перешёл на системную и активировал возможность использовать caps lock в качестве переключателя языкового ввода. Это очень удобно. Спустя время наткнулся на заметку Рахима и мне понравилась идея использовать эту кнопку в качестве комбинации ⌘⇧⌥⌃, но променять её на раскладку готов не был. Как оказалось, с помощью Karabiner Elements можно решить обе задачи сразу:</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/hyper-caps-lock/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/novosibirsk/">Новосибирск</a>
+  </h1>
+  <span class="post-date">Jan 14, 2018</span>
+  <p>Состоялась моя вторая поездка в Сибирь, где я провёл все новогодние праздники. В Сочи снега на Новый год почти никогда не бывает, поэтому решили отправиться туда где он гарантировано будет. В 2013 года я уже бывал в Сибири, тогда это был город Красноярск, который мне очень понравился. Так что теперь будет с чем сравнивать.
+Погода Собирался к поездке тщательно, взял все тёплые вещи которые только смог найти в своём гардеробе.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/novosibirsk/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/hello-jekyll/">Привет, Jekyll</a>
+  </h1>
+  <span class="post-date">Dec 27, 2017</span>
+  <p>Я решился на эксперимент с движком для блогов Jekyll. Ранее, если вы помните, у меня уже был Octopress, который как бы форк Jekyll, но после того как автор на него забил я просто не нашёл подходящей темы для Jekyll и решил полностью мигрировать на другой движок. Эгея мне нравилась и до сих нравится как платформа для блогов, но у всего есть недостатки и преимущества, которые меняются спустя время.
+Что не так с Эгеей  Движок одного автора.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/hello-jekyll/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/applemusic-vs-spotify/">Apple Music vs Spotify</a>
+  </h1>
+  <span class="post-date">Apr 7, 2017</span>
+  <p>За долгий путь по которому развивались различные стриминговые аудиосервисы я успел попользоваться многими из них, но в настоящее время интерес представляют лишь два.
+Давайте сразу уточню, чтоб не создавать путаницы — хоть Apple Music и является официально доступным в нашей стране, говорить я буду о практическом использовании сервиса через американскую учётную запись. Множество жанров имеют близкую к нулевой популярность в России. Например, джаз, раздел которого почти не обновляется. Spotify же вообще не работает в РФ, что также подталкивает к сравнению сервисов одного и того же географического региона с примерно одинаковым по наполнению контентом.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/applemusic-vs-spotify/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/commercial-vpn-services/">Коммерческие сервисы VPN</a>
+  </h1>
+  <span class="post-date">Apr 6, 2017</span>
+  <p>Защита Интернета трафика является на сегодняшний день вещью приоритетной. Большинство провайдеров логируют весь трафик, хранят его и предоставляют в компетентные органы по первому требованию. Так происходит не только в России, достаточно почитать новостные сводки с то и дело вспыхивающими делами о «незаконных» лайках, репостах, запрещённых торрентах и прочих вещах, которые ещё в недавнем времени были не нужны государствам. Теперь же, когда Интернет является публичным пространством анонимность имеет огромное значение.
+Вы можете сколько угодно думать, что вас это всё не касается.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/commercial-vpn-services/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/apple-workflow/">Workflow для Apple Music и не только</a>
+  </h1>
+  <span class="post-date">Mar 21, 2017</span>
+  <p>Недавно поставил для себя задачу хоть как-то автоматизировать процесс шаринга музыки в социальные сети и непубличные заметочники на iOS. Стандартными средствами программа Music отдаёт лишь короткую ссылку на альбом или трек, предлагая пользователю самому вписать другие данные. Мне обычно хочется дописать к ссылке имя исполнителя, название, жанр, год, графическую обложку альбома и добавить к этим данным короткий комментарий. По ходу обсуждения своих хотелок в Twitter получил также пожелания в виде тиражирования ссылок на Spotify и YouTube.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/apple-workflow/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/jabra-rox/">Беспроводные наушники Jabra ROX</a>
+  </h1>
+  <span class="post-date">Jun 1, 2016</span>
+  <p>Тема наушников часто не даёт мне покоя, всё никак не могу найти идеальное решение на все случаи жизни. У меня в коллекции есть флагманские Logitech UE900, есть запасные Klipsch X11i, которые брались им на смену, но не попёрли. Все эти наушники безусловно хороши, но в них есть один большой недостаток — провода. Чёртовы провода постоянно мешают то тут, то там. Их надо постоянно распутывать, они всё время мешаются, телефон вечно приходится держать рядом.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/jabra-rox/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/google-ecosystem/">Экосистема Google</a>
+  </h1>
+  <span class="post-date">May 31, 2016</span>
+  <p>Вот и закончился масштабный эксперимент с игрушками Google. Я уже успел вам рассказать про опыт использования LG Nexus 5X, но не успел ничего рассказать про Chromecast и умные часы Moto 360 V2. Всё прошло так быстро, что я и сам толком не заметил как продал все эти устройства.
+Что? Почему? Как?
+Если говорить откровенно, то задумка продать была ещё до покупки. Просто не знал насколько эта игра может затянуться. Не затянулась, ну и ладно, зато будет что вспомнить, зато будет своё мнение.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/google-ecosystem/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/apps-for-android/">Набор приложений для Android</a>
+  </h1>
+  <span class="post-date">May 10, 2016</span>
+  <p>Прошло уже достаточно времени для того чтоб рассказать о приложениях, которые попали на мой новенький LG Nexus 5X.
+Итак, на главном экране:
+ Talon — twitter клиент. Я долго метался от одного к другому. Начал с официального, быстро понял, что с таким количеством рекламы я жить не смогу и поэтому пошёл искать замену. Первым поставил Talon, он подглючивал при обновлении ленты, дёргая сообщения туда-сюда. Дальше я пробовал Falcon Pro 3 и Fenix.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/apps-for-android/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/nexus-5x/">Обзор Nexus 5x</a>
+  </h1>
+  <span class="post-date">Apr 26, 2016</span>
+  <p>Пользователем смартфонов Apple, как вы знаете, я являюсь довольно давно — примерно c 2010 года когда состоялся релиз iPhone 4. Впрочем, и до этого iOS мне не была чужда, так как я был активным пользователем iPod Touch. Поэтому буду рассматривать телефон LG Nexus 5X исключительно с колокольни прожжённого яблочного фаната. Уберите детей подальше от телевизора :)
+Хочу немного рассказать предысторию покупки. В целом меня Андроид никогда в принципе не интересовал, но при этом я всегда знал, что Nexus являются телефонами от разных производителей на которых компания Google обкатывает свою прошивку, что называется, на живца.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/nexus-5x/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/hiking-equipment/">Выбор снаряжения для горных походов</a>
+  </h1>
+  <span class="post-date">Oct 30, 2015</span>
+  <p>Потратил довольно много времени чтоб раскрыть эту новую интереснейшую для себя тему. Сразу предупреждаю, что я не сторонник компромиссов и выбирал вещи из разряда «самое лучше» или «не ниже среднего», так что любители сэкономить (возможно посвятить этому отдельную тему?) явно рады моему выбору не будут. Я считаю, что бытуя в горах можно оказаться в самых неблагоприятных погодных условиях и плохая экипировка доставит массу проблем.
+Всё что ниже — моё личное мнение, которое изначально основывалось на рецензиях авторитетных изданий и рекомендациях опытных друзей.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/hiking-equipment/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/klipsch-x11i/">Наушники Klipsch X11i</a>
+  </h1>
+  <span class="post-date">Aug 27, 2015</span>
+  <p>Закончилась эпоха моих Logitech UE 900 купленных в Гонконге в 2013 году. Прослужили они около двух лет, эксплуатировал, можно сказать, в ежедневном режиме. С момента покупки мне они показались не очень удобными и совсем непривычными за счёт того, что кабель надо заводить за ухо. Такая у них конструкция. В комплекте было два съёмных кабеля, с микрофоном и без, а также множество насадок на ушки. Насадки сделанные из наполнителя недолговечные, рассыпаются спустя три недели.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/klipsch-x11i/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/hong-kong/">Гонконг</a>
+  </h1>
+  <span class="post-date">Aug 26, 2015</span>
+  <p>Через неделю снова собираюсь в путешествие и мне стало неловко от того, что я выкладываю довольно мало отчётов о своих поездках. Времени хватает только на локальный дневник. В самих поездках удобней всего писать короткие заметки, которые по формату подходят либо для социальных сетей, либо как раз для дневника. А непосредственно после поездки уже нет ни сил, ни времени собирать всё это в кучу. Такое положение дел никуда не годится, и в кротчайшие сроки я постараюсь опубликовать короткие и не очень отчёты о некоторых своих поездках, в том числе давно забытых.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/hong-kong/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/kindle-voyage/">Kindle Voyage</a>
+  </h1>
+  <span class="post-date">Aug 22, 2015</span>
+  <p>Ещё летом я собирался купить себе Kindle, но тогда старые версии распродавались и официально заказать Paperwhite с сайта Amazon было нельзя. Я не стал торопиться, покупать б/у экземпляр и таки дождался анонса новой версии. Сразу сделал предзаказ и начал считать томительные месяцы.
+Сравнение За это время я успел приобрести iPhone 6 Plus и читать пока что на нём. Многие писали мне комментарии, мол что за глупость покупать Kindle, когда есть огромный экран телефона.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/kindle-voyage/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/spotting-sochi/">Споттинг в аэропорту Сочи</a>
+  </h1>
+  <span class="post-date">Aug 22, 2015</span>
+  <p>Споттинг — вид хобби, заключающийся в наблюдении за самолётами. Часто сопровождается фотографированием. Давно знал о существовании такого мероприятия, но всегда как-то даже и не думал об участии. В этом году Андрей Думчев решил поучаствовать, заодно и меня прихватить. Я отказываться не стал, фотографировать самолёты в непосредственной близи, да и на нормальную камеру должно было быть интересным. К тому же, я очень давно не держал в руке свой Fuji X-T1, поэтому испытывал своего рода зуд.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/spotting-sochi/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/istanbul/">Стамбул</a>
+  </h1>
+  <span class="post-date">Oct 29, 2014</span>
+  <p>С 1 по 4 намечаются праздничные дни и я решил гульнуть на широкую ногу поехав за границу. Выбор безвизовых стран невелик, а тех в которые можно поехать прямиком из Сочи и подавно. По сути Стамбул это чуть ли не единственный вариант из возможных.
+Трансфер и проживание Билеты на самолёт покупались заранее по цене около 10 000 рублей в оби стороны, что в принципе недорого. С проживанием я решил поэкспериментировать, забронировав не отель, а койку-место в хостеле.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/istanbul/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/day-one/">Электронный дневник Day One</a>
+  </h1>
+  <span class="post-date">Oct 7, 2014</span>
+  <p>Писать короткие заметки в сервисы–блокноты (Evernote, Notes, Simplenote) весьма неудобно. А Facebook в этом плане представился мне сущим раем. Нет ограничений по количеству символов, геолокация, поддержка медиа, отличный мобильный клиент. Пользовался с удовольствием. Но прошло время когда я захотел вернуться к старым заметкам и тут началось ожидаемое. Интерфейс Facebook в принципе позволяет нырять по истории, но если на странице оказывается большое количество заметок, то прощай ресурсы компьютера и, в частности, оперативная память.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/day-one/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/iphone6/">iPhone 6</a>
+  </h1>
+  <span class="post-date">Oct 3, 2014</span>
+  <p>Не хотелось останавливаться на этой теме, но многие спрашивают про впечатления от нового устройства Apple, поэтому постараюсь свести свои впечатления в небольшой текст.
+Так уже случилось, что второй релиз подряд топового устройства Apple я покупаю в день продаж. И если в прошлом году мне для этого надо было оказаться в далёком Гонконге, то в этот раз посчастливилось сделать это в родном городе. Если вопрос и ставится о смене устройства на более новое поколение, то делать это в день запуска гораздо приятнее.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/iphone6/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/prokachka-velosipeda/">Прокачка велосипеда</a>
+  </h1>
+  <span class="post-date">Jun 3, 2014</span>
+  <p>Уже больше месяца я катаюсь на своём Jamis Dragon 29 Sport и за это время умудрился поставить довольно много апгрейдов. На самом деле на первых парах я чуточку перегорел любовью к новой игрушке и возможно купил несколько больше реально необходимого. Велосипед довольно хорош в базовой комплектации и всё что мной покупалось за исключением грипс и покрышек является ничем иным как велофетишизмом.
+Покрышки Schwalbe Marathon Almotion (цена 2500 руб.) Резина это то, что пришлось первым поменять на новеньком велосипеде.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/prokachka-velosipeda/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/kalibrator-monitora/">Калибратор монитора</a>
+  </h1>
+  <span class="post-date">May 14, 2014</span>
+  <p>Давно мечтал откалибровать все свои дисплеи, а с учётом покупки второго ноутбука задача эта вышла на первый план. Последней каплей был случай когда я взял в руки точно такой же MacBook Air 11-inch как у меня и увидел на экране совсем другие цвета. Все экраны выходящие с одного и того же конвейера имеют особенности и не редки случаи когда на двух одинаковых устройствах мы видим совершенно разную палитру. Исключений нет, у меня так было со всеми iPhone, iPad, MacBook и так далее.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/kalibrator-monitora/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/fujinon-xc50-230/">Объектив FUJINON XC50-230mmF4.5-6.7 OIS</a>
+  </h1>
+  <span class="post-date">Apr 23, 2014</span>
+  <p>Приобрёл совершенно непланируемый ранее объектив на самые длинные фокусные расстояния в линейке FUJIFILM.
+Исторически все фокусные после 100mm далеко не самые используемые в моей коллекции. После того как я купил телевик Nikon 70-200mm с конвертером TC-17E пользовался им, прямо скажу, не часто. Немного поснимал залив Виктория в Гонконге, зверушек в красноярском зоопарке и конькобежцев на Олимпиаде. На этом собственно всё.
+Основным телевиком у FUJIFILM является XF 55-200mm f/3.5-4.8 весом 600 грамм, а таскать с собой тяжёлый редкоиспользуемый объектив с беззеркальной камерой мне точно уж не хотелось.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/fujinon-xc50-230/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/think-tank-retrospective5/">Фотосумка Think Tank Retrospective 5</a>
+  </h1>
+  <span class="post-date">Apr 19, 2014</span>
+  <p>После приобретения беззеркальной камеры FUJIFILM X-T1 для меня встал вопрос как её носить. Так как компактных камер у меня никогда не было, а полнокадровые монстры были всегда в доме завалялось несчётное множество различных сумок и рюкзаков. Но почти рюкзаки огромные, а сумки я покупал вообще для того чтоб отдыхать от съёмок и носить в них всё что угодно, но не фотоаппарат.
+У меня абсолютно нет претензий к моим базовым городским фоторюкзакам — KATA DR-466 DL и Lowepro Photo Hatchback 22L AW.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/think-tank-retrospective5/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/adlerskaya-naberezhnaya/">Набережная в Адлерском райне города Сочи</a>
+  </h1>
+  <span class="post-date">Apr 18, 2014</span>
+  <p>К Олимпиаде построили не только дворцы и дороги, но и отгрохали 7-километровую набережную. Я там вообще не бывал, но сегодня решил пройтись после обеда. Заодно выгулял Фуджи.
+Набережная получилась неожиданно хороша. Тут тебе никаких совковых ресторанов с живой музыкой, тихая спокойная полоса с большим количеством источников света для вечерних прогулок, резиновое покрытие для страждущих побегать и конечно же велосипедная дорожка. Вся эта красота чуть-чуть разбавлена прилегающими гостиницами разного сорта и парочкой тихих ресторанов.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/adlerskaya-naberezhnaya/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/fujinon-xf14/">Объектив FUJINON XF14mmF2.8 R</a>
+  </h1>
+  <span class="post-date">Apr 17, 2014</span>
+  <p>Ну вот пришло долгожданное пополнение моей линейки объективов Фуджи и собственно мой первый фикс. Я его получил недели две назад, но потестировать не получалось. Сейчас выпал первый шанс поснимать на него репортаж и получилось довольно не плохо.
+Мне объектив понравился, он явно лучше штатного зума 18-55mm, сильно резче в центре и по краям на закрытой диафрагме, даёт хороший контрастный рисунок. Я боялся что после нескольких лет с зумами мне будет неудобно снимать фиксом, чуть-чуть жалел, что не дождался выхода XF 10-24mm и купил 14mm на распродаже.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/fujinon-xf14/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/macbook-air-mid-2013/">MacBook Air 11-inch, Mid 2013</a>
+  </h1>
+  <span class="post-date">Apr 11, 2014</span>
+  <p>Оба мои iPad таки распродались за один день и я сразу же заказал MacBook Air 11 по хорошей цене в 33000 руб., что даже дешевле чем в американском сторе по текущему курсу доллара. Меня много пугали плохим несносным качеством экрана этой модели, но я всё равно не отступил от цели брать именно 11-дюймовую модель.
+У меня уже есть хороший топовый MacBook Retina 15-inch с лучшим экраном всех линеек и брать к нему в пару 13-inch не очень разумно.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/macbook-air-mid-2013/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/aeropress/">Aeropress</a>
+  </h1>
+  <span class="post-date">Apr 6, 2014</span>
+  <p>Способов приготовления кофе довольно много и в каждом из случаев мы получаем разный по вкусовым свойствам напиток.
+Про Aeropress я наслышан давно, истинные кофеманы ставят его где-то посередине между домашним эспрессо и френч-прессом. Заказывая этот американский девайс я даже не ожидал что он мне так понравится. На мой взгляд Aeropress готовит напиток скорее ближе к эспрессо и многие могут даже не отличить если разбавлять его водой. Главное в приготовлении это конечно же степень помола зёрен.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/aeropress/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/fujifilm-x-t1/">Беззеркальная камера Fujifilm X-T1</a>
+  </h1>
+  <span class="post-date">Apr 1, 2014</span>
+  <p>Вот дождался я своей долгожданной камеры и даже успел собрать первые впечатления, о которых сейчас вам и поведаю.
+Конструктив Камера действительно очень маленькая, вместе с кит объективом помещается у меня в ладошке. Держать в руках удобно, приятно, чувствуется что дорогая хорошо сделанная вещь. Вся конструкция металлическая, пластмассовых деталей практически нет. Можно вешать на шею, но в отличие от компактов вес ощущается. Поэтому я бы рекомендовал обзавестись нормальным наплечным ремнём. Несмотря на небольшие размеры в карман куртки её всё равно не засунуть, так что желательна сумка или маленький рюкзак.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/fujifilm-x-t1/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/estafeta-olimpiyskogo-ognya/">Эстафета олимпийского огня</a>
+  </h1>
+  <span class="post-date">Dec 6, 2013</span>
+  <p>В этой статье постараюсь воссоздать события 26 ноября во время которых я принимал участие в эстафете олимпийского огня в г. Красноярск. Ничего особенного я почему-то не ожидал, но в результате получил громадное удовольствие.
+Очень понравилась организация, за что отдельное спасибо хочу сказать ребятам из Оргкомитета и сотрудникам Арена Север, которые нас встречали. По прибытию на пункт сбора нам выдали форму одежды, прономерованные факелы и провели инструктаж. Я очень удивился насколько просто и празднично это все происходило.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/estafeta-olimpiyskogo-ognya/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://snupt.com/blog/krasnoyarsk/">Красноярск</a>
+  </h1>
+  <span class="post-date">Dec 6, 2013</span>
+  <p>Итак, это событие все таки состоялось. Сибирский отпуск получился на славу и запомнится очень надолго. Всему виной замечательный город Красноярск и историческая эстафета в которой я принял участие. Об эстафете отдельно напишу в следующей статье.
+Летел через Москву, в общей сложности около 7 часов. В день прибытия как раз выпал первый снег и не спадал до момента моего улета домой. Этому я безумно рад, удалось получить весьма сказочное настроение, так как снег я вижу в своем южном городе не часто.</p>
+  
+  <div class="read-more-link">
+    <p><a href="/blog/krasnoyarsk/">Читать далее…</a></p>
+  </div>
+  
+  <hr/>
+</div>
+</div>
+    </div>
+
+    
+    
+<script type="text/javascript">
+  var clicky_site_ids = clicky_site_ids || [];
+  clicky_site_ids.push(100590268);
+  (function() {
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = '//static.getclicky.com/js';
+    ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+  })();
+</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/100590268ns.gif" /></p></noscript>
+
+
+<script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter26955852 = new Ya.Metrika({ id:26955852, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/26955852" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+  </body>
+</html>

@@ -5,26 +5,29 @@ services:
     image: nginx:latest
     container_name: nginx
     volumes:
-      - ./www:/var/www
+      - ./webroot:/var/www
       - ./letsencrypt:/etc/letsencrypt
       - ./conf:/etc/nginx/conf.d
+      - ./logs:/var/log/nginx
     ports:
       - 80:80
       - 443:443
     restart: always
 
-  letsencrypt-create:
+  letsencrypt:
     image: certbot/dns-route53:latest
     container_name: letsencrypt
     volumes:
       - ./letsencrypt:/etc/letsencrypt
-    command: certonly -n --agree-tos --email snupt@snupt.com --renew-by-default --dns-route53 -d snupt.com -d www.snupt.com
+    # command: certonly -n --agree-tos --email snupt@snupt.com --renew-by-default --dns-route53 -d snupt.com -d www.snupt.com
+    # command: certonly -n --agree-tos --email snupt@snupt.com --renew-by-default --dns-route53 -d webmail.snupt.com
+    # command: certonly -n --agree-tos --email snupt@snupt.com --renew-by-default --dns-route53 -d git.snupt.com
+    # command: certonly -n --agree-tos --email snupt@snupt.com --renew-by-default --dns-route53 -d st-de.snupt.com
+    command: delete
+    # command: renew
     env_file: .secrets
 
-  letsencrypt-renew:
-    image: certbot/dns-route53:latest
-    container_name: letsencrypt
-    volumes:
-      - ./letsencrypt:/etc/letsencrypt
-    command: renew
-    env_file: .secrets
+networks:
+  default:
+    external:
+      name: nginx

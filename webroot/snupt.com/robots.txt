@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /awesome/
+Disallow: /categories/
+Disallow: /newindex/
+Disallow: /tags/
+Sitemap: https://snupt.com/sitemap.xml

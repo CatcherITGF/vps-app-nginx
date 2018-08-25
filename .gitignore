@@ -1,0 +1,4 @@
+www/
+letsencrypt/
+dhparam.pem
+.secrets

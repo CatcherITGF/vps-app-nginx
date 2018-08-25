@@ -1,0 +1,3 @@
+.post:nth-last-child(1) hr {
+  display: none;
+}
